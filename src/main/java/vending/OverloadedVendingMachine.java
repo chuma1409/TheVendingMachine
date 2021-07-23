@@ -5,6 +5,7 @@ public class OverloadedVendingMachine {
     private int softDrinkQty;
     private int saltySnacksQty;
     private int chocolatesQty;
+    private Products products;
     public OverloadedVendingMachine(int softDrinkQty, int saltySnacksQty, int chocolatesQty){
         // set the stockLevel instance variables for each product in the constructor
         this.softDrinkQty = softDrinkQty;
@@ -66,4 +67,30 @@ public class OverloadedVendingMachine {
 // public int buy (Products products, int x){
 //     return this.softDrinkQty - x;
 // }
+    public void buy(Products products, int x) {
+
+        switch (products){
+            case SaltySnack:
+               this.saltySnacksQty -=x;
+            case SoftDrink:
+                this.softDrinkQty -=x;
+            case Chocolate:
+                this.chocolatesQty -=x;
+        }
+
+
+    }
+    public void addStock(Products products, int x) {
+
+        switch (products){
+            case SaltySnack:
+                this.saltySnacksQty +=x;
+            case SoftDrink:
+                this.softDrinkQty +=x;
+            case Chocolate:
+                this.chocolatesQty +=x;
+        }
+
+
+    }
 }
