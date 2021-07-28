@@ -5,6 +5,7 @@ public class OverloadedVendingMachine {
     private int softDrinkQty;
     private int saltySnacksQty;
     private int chocolatesQty;
+
     private Products products;
     public OverloadedVendingMachine(int softDrinkQty, int saltySnacksQty, int chocolatesQty){
         // set the stockLevel instance variables for each product in the constructor
