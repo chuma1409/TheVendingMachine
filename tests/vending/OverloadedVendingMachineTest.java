@@ -1,54 +1,51 @@
 package vending;
 
 import org.junit.jupiter.api.Test;
-import vending.product.Chocolate;
-import vending.product.Product;
-import vending.product.SaltySnack;
-import vending.product.SoftDrink;
+import vending.product.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-//import static org.junit.Assert.*;
 public class OverloadedVendingMachineTest {
     @Test
     public void shouldGetStockChocolate(){
         OverloadedVendingMachine ov = new OverloadedVendingMachine(10,8,10);
         Chocolate cc = new Chocolate();
         ov.getStock(cc);
-        System.out.println(ov.getStock(cc));
+        assertEquals(10,ov.getStock(cc));
 
     }
     @Test
     public void shouldGetStockAllProducts(){
         OverloadedVendingMachine ov = new OverloadedVendingMachine(10,8,10);
         ov.getStock();
-        System.out.println(ov.getStock());
+        assertEquals(28,ov.getStock());
     }
     @Test
     public void shouldAddStockSaltySnack(){
         OverloadedVendingMachine ov = new OverloadedVendingMachine(10,8,10);
         SaltySnack ss = new SaltySnack();
         ov.addStock(ss);
-        System.out.println(ov.getStock(ss));
+        assertEquals(9,ov.getStock(ss));
     }
     @Test
     public void shouldBuySoftDrink(){
         OverloadedVendingMachine ov = new OverloadedVendingMachine(10,8,10);
         SoftDrink sd = new SoftDrink();
         ov.buy(sd);
-        System.out.println(ov.getStock(sd));
+        assertEquals(9,ov.getStock(sd));
     }
     @Test
     public void shouldAddStockToProducts(){
         OverloadedVendingMachine ov = new OverloadedVendingMachine(10,8,10);
         Product p = new Product();
         ov.addStock(p);
-        System.out.println(ov.getStock());
+        assertEquals(37,ov.getStock());
     }
     @Test
     public void shouldBuyAllProducts(){
         OverloadedVendingMachine ov = new OverloadedVendingMachine(10,8,10);
         Product p = new Product();
         ov.buy(p);
-        System.out.println(ov.getStock());
+        assertEquals(25,ov.getStock());
     }
     @Test
     public void shouldBuyProductWithSpecInt(){
@@ -57,7 +54,7 @@ public class OverloadedVendingMachineTest {
         Products ss = Products.SaltySnack;
         SaltySnack s = new SaltySnack();
        ov.buy(ss,5);
-        System.out.println(ov.getStock(s));
+        assertEquals(3,ov.getStock(s));
     }
     @Test
     public void shouldAddStockForSpecificAmountAndProduct(){
@@ -65,7 +62,6 @@ public class OverloadedVendingMachineTest {
         Products pc = Products.Chocolate;
         Chocolate c = new Chocolate();
         ov.addStock(pc,7);
-        System.out.println(ov.getStock(c));
-
+        assertEquals(17,ov.getStock(c));
     }
 }
